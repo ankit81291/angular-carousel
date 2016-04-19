@@ -1,6 +1,6 @@
 /**
  * Angular Carousel - Mobile friendly touch carousel for AngularJS
- * @version v1.0.1 - 2016-03-05
+ * @version v1.0.1 - 2016-04-19
  * @link http://revolunet.github.com/angular-carousel
  * @author Julien Bouquillon <julien@revolunet.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -269,7 +269,7 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                             transitionDuration: parseInt(iAttributes.rnCarouselDuration, 10) || 300,
                             isSequential: true,
                             autoSlideDuration: 3,
-                            bufferSize: 5,
+                            bufferSize: iAttributes.rnBufferSize || 5,
                             /* in container % how much we need to drag to trigger the slide change */
                             moveTreshold: 0.1,
                             defaultIndex: 0
