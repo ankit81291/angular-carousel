@@ -486,7 +486,7 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
 
                         if (iAttributes.rnCarouselIndex) {
                             var updateParentIndex = function(value) {
-                                indexModel.assign(scope.$parent, value);
+                                indexModel.assign(scope.$parent.$parent, value);
                             };
                             var indexModel = $parse(iAttributes.rnCarouselIndex);
                             if (angular.isFunction(indexModel.assign)) {
@@ -494,7 +494,7 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                                 scope.$watch('carouselIndex', function(newValue) {
                                     updateParentIndex(newValue);
                                 });
-                                scope.$parent.$watch(indexModel, function(newValue, oldValue) {
+                                scope.$parent.$parent.$watch(indexModel, function(newValue, oldValue) {
 
                                     if (newValue !== undefined && newValue !== null) {
                                         if (currentSlides && currentSlides.length > 0 && newValue >= currentSlides.length) {
